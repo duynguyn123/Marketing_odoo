@@ -1,0 +1,38 @@
+<odoo>
+  <record id="view_custom_remind_time_form" model="ir.ui.view">
+    <field name="name">custom.remind.time.form</field>
+    <field name="model">custom.remind.time</field>
+    <field name="arch" type="xml">
+      <form string="Custom Remind Time">
+        <sheet>
+          <group>
+            <field name="name" />
+            <field name="days" />
+            <field name="hours" />
+            <field name="minutes" />
+          </group>
+        </sheet>
+      </form>
+    </field>
+  </record>
+
+  <record id="view_custom_remind_time_tree" model="ir.ui.view">
+    <field name="name">custom.remind.time.tree</field>
+    <field name="model">custom.remind.time</field>
+    <field name="arch" type="xml">
+      <tree string="Custom Remind Times">
+           <field name="name" />
+           <!-- <field name="days" invisible="1" />
+           <field name="hours" invisible="1" />
+           <field name="minutes" invisible="1" /> -->
+           <field name="display_name" string="Value" />
+      </tree>
+    </field>
+  </record>
+
+  <record id="action_custom_remind_time" model="ir.actions.act_window">
+    <field name="name">Custom Remind Times</field>
+    <field name="res_model">custom.remind.time</field>
+    <field name="view_mode">tree,form</field>
+  </record>
+</odoo>

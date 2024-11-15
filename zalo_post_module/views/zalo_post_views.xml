@@ -1,0 +1,81 @@
+<odoo>
+    <record id="view_zalo_post_form" model="ir.ui.view">
+        <field name="name">zalo.post.form</field>
+        <field name="model">zalo.post</field>
+        <field name="arch" type="xml">
+            <form string="Zalo Post">
+                <sheet>
+                    <div class="row">
+                        <div class="col-6">
+                            <group>
+                                <field name="cover_url"/>
+                                <field name="no_video" />
+                                <field name="video_type" invisible="no_video" />
+                                <field name="post_status" />
+                                <field name="post_message_respond" options="{'color': 'red'}" readonly="1" />
+                            </group>
+                        </div>
+                        <div class="col-6">
+                            <group>
+                                <field name="zalo_app_id"/>
+                                <field name="zalo_account"/>
+                                <field name="schedule_date" widget="datetime" invisible="is_post_to_zalo" />
+                                <field name="is_post_to_zalo" string="Post now"/>
+                                <field name="is_posted" readonly="1" />
+
+                            </group>
+                        </div>
+                    </div>
+                    
+                    <notebook>                 
+                        <page name="videoPost" string="Chose Video" invisible="no_video" >
+                        <div class="row">
+                            <div class="col-6">
+                                <group>
+                                    <field name="video_file" filename="file_name" />
+                                    <field name="video_name" filename="file_name" />
+                                </group>
+                            </div>
+                            <div class="col-6">
+                                <group>
+                                    <field name="status" />
+                                    <field name="zalo_app_id"/>
+                                </group>
+                            </div>
+                        </div>
+                            <group>
+                                <field name="video_message_respond"  readonly="1" />
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Define the Zalo Post tree view -->
+    <record id="view_zalo_post_tree" model="ir.ui.view">
+        <field name="name">zalo.post.tree</field>
+        <field name="model">zalo.post</field>
+        <field name="arch" type="xml">
+            <tree string="Zalo Posts">
+                <field name="content_id"/>
+                <field name="schedule_date" widget="datetime" />
+                <field name="post_status" />
+            </tree>
+        </field>
+    </record>
+
+    <!-- Define the action for Zalo Posts -->
+    <record id="action_zalo_post" model="ir.actions.act_window">
+        <field name="name">Zalo Posts</field>
+        <field name="res_model">zalo.post</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Hãy thêm một post
+            </p>
+        </field>
+    </record>
+
+</odoo>

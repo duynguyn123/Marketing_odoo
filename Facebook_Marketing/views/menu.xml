@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <!-- Menu cha kế thừa từ menu_config của maketing_content -->
+  <menuitem id="menu_facebook_marketing" name="FacebookMarketing" parent="MarketingContent.menu_config" sequence="0" />
+
+  <menuitem id="menu_facebook_marketing_root" name="Facebook Marketing" parent="MarketingContent.menu_root" sequence="0" />
+  <!-- List Post -->
+  <menuitem id="menu_marketing_post" name="List Post" parent="menu_facebook_marketing_root" action="action_marketing_post" />
+ <!-- Menu Facebook Group -->
+  <menuitem id="menu_facebook_groups" name="Facebook Groups" parent="menu_facebook_marketing" sequence="0" action="action_facebook_group" />
+ <!-- Menu Account -->
+  <menuitem id="menu_manager_account" name="Manager Account" parent="menu_facebook_marketing" action="action_manager_account" sequence="0" />
+ <!-- Menu Page -->
+  <menuitem id="menu_facebook_page" name="Manager Page" action="action_facebook_page" parent="menu_facebook_marketing" sequence="0" />
+ <!-- Menu Product -->
+  <menuitem id="menu_product_in_config" name="Products" parent="menu_facebook_marketing_root" sequence="10" action="product.product_template_action" />
+  <!-- Menu ScheduledPost -->
+  <menuitem id="menu_scheduled_post" name="Schedule Post" parent="menu_facebook_marketing_root" sequence="0" action="action_scheduled_post" />
+ <!-- Menu Comment -->
+ <menuitem id="menu_auto_comment_schedule" name="Auto Comment Schedule" parent="menu_facebook_marketing_root" action="action_auto_comment_schedule" />
+
+ <menuitem id="menu_custom_remind_time" name="Custom Remind Times" action="action_custom_remind_time" parent="menu_facebook_marketing_root" />
+
+</odoo>

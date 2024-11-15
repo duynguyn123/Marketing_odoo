@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <!-- Tree View for Content Category -->
+        <record id="view_content_category_tree" model="ir.ui.view">
+            <field name="name">content.category.tree</field>
+            <field name="model">content.category</field>
+            <field name="arch" type="xml">
+                <tree string="Content Categories">
+                    <field name="name"/>
+                    <field name="description"/>
+                    <field name="parent_category"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Form View for Content Category -->
+        <record id="view_content_category_form" model="ir.ui.view">
+            <field name="name">content.category.form</field>
+            <field name="model">content.category</field>
+            <field name="arch" type="xml">
+                <form string="Content Category">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="description"/>
+                            <field name="parent_category" options="{'no_create': True}"/>
+                        </group>
+                        <notebook>
+                            <page string="Blog Categories">
+                                <field name="blog_category"/>
+                            </page>
+                            <page string="Product Categories">
+                                <field name="product_category"/>
+                            </page>
+                            <page string="Subcategories">
+                                <field name="subcategory_ids">
+                                    <tree editable="bottom">
+                                        <field name="name"/>
+                                        <field name="description"/>
+                                        <field name="parent_category"/>
+                                    </tree>
+                                </field>
+                            </page>
+                            <page string="Marketing Content">
+                                <field name="content_ids" widget="many2many_list">
+                                    <tree editable="bottom">
+                                        <field name="title"/>
+                                        <field name="content"/>
+                                        <field name="image_ids"/>
+                                        <field name="url"/>
+                                        <field name="include_link"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Add Existing Content View -->
+        <record id="view_add_existing_content_form" model="ir.ui.view">
+            <field name="name">add.existing.content.form</field>
+            <field name="model">marketing.content</field>
+            <field name="arch" type="xml">
+                <form string="Select Marketing Content">
+                    <sheet>
+                        <group>
+                            <field name="title"/>
+                            <field name="content"/>
+                            <field name="image_ids"/>
+                            <field name="url"/>
+                            <field name="include_link"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Action for Content Category -->
+        <record id="action_content_category" model="ir.actions.act_window">
+            <field name="name">Content Categories</field>
+            <field name="res_model">content.category</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_content_category_tree"/>
+        </record>
+
+        <!-- Action to Add Existing Marketing Content -->
+        <record id="action_add_existing_content" model="ir.actions.act_window">
+            <field name="name">Add Existing Marketing Content</field>
+            <field name="res_model">marketing.content</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_add_existing_content_form"/>
+            <field name="target">new</field>
+            <field name="context">{'default_category_id': active_id}</field>
+            <field name="domain">[('id', 'not in', context.get('default_category_id').content_ids.ids)]</field>
+        </record>
+    </data>
+</odoo>

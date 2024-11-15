@@ -1,0 +1,70 @@
+<odoo>
+    <data>
+        
+        <!-- Inherit Menu Root -->
+        <menuitem
+            id="menu_zalo_postv2"
+            parent="MarketingContent.menu_root" 
+            name="Zalo Marketing" 
+            sequence="43" 
+            action="action_zalo_post"
+        />
+
+        <!-- Submenu -->
+        <menuitem 
+            id="zalo_group" 
+            parent="menu_zalo_postv2"
+            name="Zalo Manager"
+        />
+
+        <!-- Manager Zalo app -->
+        <menuitem 
+            id="menu_zalo_app" 
+            name="Manager Zalo App" 
+            parent="zalo_group" 
+            action="action_zalo_app"
+            sequence="40"
+        />
+
+        <!-- Manager Zalo Account -->
+        <menuitem 
+            id="menu_zalo_account" 
+            name="Manager Zalo Account" 
+            parent="zalo_group" 
+            action="action_zalo_account"
+            sequence="40"
+        />
+
+        <!-- Manager Zalo Video -->
+         <menuitem id="menu_video" 
+            name="Zalo Manager Video"
+            parent="zalo_group"  
+            action="action_zalo_video"
+            sequence="10"
+         />
+
+         <!-- Manager Post Schedule -->
+         <menuitem id="menu_schedule" 
+            name="Zalo Post Schedule"
+            parent="zalo_group"  
+            action="action_zalo_schedule"
+            sequence="10"
+         />
+
+        <!-- Manager Video Being Converted -->
+        <menuitem id="video_convert" 
+            name="Zalo Video Converted"
+            parent="zalo_group"  
+            action="action_zalo_video_converted"
+            sequence="10"
+         />
+
+        <menuitem id="manager_zalo_post" 
+            name="Zalo Post"
+            parent="zalo_group"  
+            action="action_zalo_post"
+            sequence="10"
+         />
+
+    </data>
+</odoo>

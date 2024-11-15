@@ -1,0 +1,53 @@
+<odoo>
+    <data>
+        <!-- Form View for Marketing Blog -->
+        <record id="view_marketing_blog_form" model="ir.ui.view">
+            <field name="name">marketing.blog.form</field>
+            <field name="model">marketing.blog</field>
+            <field name="arch" type="xml">
+                <form string="Blog Marketing Content">
+                    <sheet>
+                        <div class="row">
+                            <!-- Left Column: Image -->
+                            <div class="col-6" style="border: 1px solid #ddd; padding: 15px; border-radius: 5px;">
+                                <h3>Blog Image</h3>
+                                <field name="temp_image" widget='image' class="oe_avatar" style="width: 100%; height: auto; border-radius: 10px;"/>
+                            </div>
+                            <!-- Right Column: Content -->
+                            <div class="col-6">
+                                <group string="Blog Details" class="mt16 mb16">
+                                    <field name="blog_id" options="{'no_create': True}" placeholder="Select Blog Post"/>
+                                    <field name="content" string="Subtitle" placeholder="Enter blog subtitle"/>
+                                    <field name="url" readonly="1" string="Blog URL"/>
+                                    <field name="include_link" string="Include Link"/>
+                                </group>
+                            </div>
+                        </div>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Tree View for Marketing Blog -->
+        <record id="view_marketing_blog_tree" model="ir.ui.view">
+            <field name="name">marketing.blog.tree</field>
+            <field name="model">marketing.blog</field>
+            <field name="arch" type="xml">
+                <tree string="Blog Marketing Content">
+                    <field name="blog_id"/>
+                    <field name="content"/>
+                    <field name="url"/>
+                    <field name="include_link"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Action -->
+        <record id="action_marketing_blog" model="ir.actions.act_window">
+            <field name="name">Blog Marketing Content</field>
+            <field name="res_model">marketing.blog</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+    </data>
+</odoo>

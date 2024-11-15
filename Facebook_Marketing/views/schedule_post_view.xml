@@ -1,0 +1,38 @@
+<odoo>
+  <data>
+    <!-- Action -->
+    <record id="action_scheduled_post" model="ir.actions.act_window">
+      <field name="name">Scheduled Posts</field>
+      <field name="res_model">scheduled.post</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Tree View -->
+    <record id="view_scheduled_post_tree" model="ir.ui.view">
+      <field name="name">scheduled.post.tree</field>
+      <field name="model">scheduled.post</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="post_id" />
+          <field name="schedule_post" />
+        </tree>
+      </field>
+    </record>
+
+    <!-- Form View -->
+    <record id="view_scheduled_post_form" model="ir.ui.view">
+      <field name="name">scheduled.post.form</field>
+      <field name="model">scheduled.post</field>
+      <field name="arch" type="xml">
+        <form>
+          <sheet>
+            <group>
+              <field name="post_id" />
+              <field name="schedule_post" />
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+  </data>
+</odoo>

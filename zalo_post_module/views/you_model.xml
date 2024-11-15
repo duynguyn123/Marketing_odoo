@@ -1,0 +1,54 @@
+<odoo>
+    <odoo>
+    <!-- Form view for your model -->
+    <record id="view_form_your_model" model="ir.ui.view">
+        <field name="name">your.model.form</field>
+        <field name="model">your.model</field>
+        <field name="arch" type="xml">
+            <form string="Your Model">
+                <sheet>
+                    <!-- Main fields -->
+                    <group>
+                        <field name="name" />
+                        <field name="description" />
+                    </group>
+
+                    <!-- Notebook (tabbed interface) similar to Product Template -->
+                    <notebook>
+                        <page string="General Information">
+                            <group>
+                                <field name="name" />
+                            </group>
+                        </page>
+                        <page string="Details">
+                            <group>
+                                <field name="description" />
+                            </group>
+                        </page>
+                    </notebook>
+
+                    <!-- Chatter container at the bottom -->
+                    <div class="oe_chatter">
+                    <field name="name" />
+                    </div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action to open your model's views -->
+    <record id="action_your_model" model="ir.actions.act_window">
+        <field name="name">Your Model</field>
+        <field name="res_model">your.model</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="view_form_your_model"/> <!-- Reference to your form view -->
+        <field name="target">current</field>
+    </record>
+
+
+    <!-- Menu item for your model -->
+    
+</odoo>
+
+
+</odoo>

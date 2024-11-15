@@ -1,0 +1,19 @@
+<odoo>
+    <!-- Form View for Marketing Content Image Wizard -->
+    <record id="view_marketing_content_image_wizard_form" model="ir.ui.view">
+    <field name="name">marketing.content.image.wizard.form</field>
+    <field name="model">marketing.content.image.wizard</field>
+    <field name="arch" type="xml">
+        <form string="Upload Images">
+            <group>
+                <field name="image_files" widget='binary' options="{'accept': 'image/*'}" />
+                <field name="image_filenames"/>
+            </group>
+            <footer>
+                <button string="Upload" type="object" name="upload_images" class="btn-primary"/>
+                <button string="Cancel" class="btn-secondary" special="cancel"/>
+            </footer>
+        </form>
+    </field>
+</record>
+</odoo>

@@ -1,0 +1,43 @@
+<odoo>
+    <record id="view_zalo_video_converted_form" model="ir.ui.view">
+        <field name="name">zalo.videoconvert.form</field>
+        <field name="model">zalo.videoconvert</field>
+        <field name="arch" type="xml">
+            <form string="Zalo Video Converted">
+                <sheet>
+                    <group>
+                        <field name="zalo_post" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Define the Zalo Post tree view -->
+    <record id="view_zalo_video_converted_tree" model="ir.ui.view">
+        <field name="name">zalo.videoconvert.tree</field>
+        <field name="model">zalo.videoconvert</field>
+        <field name="arch" type="xml">
+            <tree string="Zalo Video">
+                <field name="zalo_post" />
+                <!-- <field name="post_id" /> -->
+                <field name="videoToken" />
+            </tree>
+        </field>
+    </record>
+
+    <!-- Define the action for Zalo Posts -->
+    <record id="action_zalo_video_converted" model="ir.actions.act_window">
+        <field name="name">Zalo Video</field>
+        <field name="res_model">zalo.videoconvert</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Nothing here
+            </p>
+        </field>
+        <!-- <field name="view_ids" eval="[(5, 0, 0), (0, 0, {'view_mode': 'tree', 'view_id': ref('view_zalo_video_converted_tree')}), (0, 0, {'view_mode': 'form', 'view_id': ref('view_zalo_video_converted_form')})]"/> -->
+    </record>
+
+    <!-- Define the menu item for Zalo Posts -->
+</odoo>

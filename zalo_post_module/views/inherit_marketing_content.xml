@@ -1,0 +1,43 @@
+<odoo>
+    <record id="inherited_module_form_view" model="ir.ui.view">
+        <field name="name">inherited.module.form.view</field>
+        <field name="model">marketing.content</field>
+        <field name="inherit_id" ref="MarketingContent.view_marketing_content_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page string="Zalo post">
+                    <field name="zalo_post"/>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+
+    <!-- <record id="inherited_module_form_viewv2" model="ir.ui.view">
+        <field name="name">inherited.module.form.viewv2</field>
+        <field name="model">marketing.product</field>
+        <field name="inherit_id" ref="MarketingContent.view_marketing_content_product_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//sheet//div[1]" position="inside">
+                <notebook>
+                    <page string="Zalo post">
+                    <field name="zalo_post"/>
+                </page>
+                </notebook>
+            </xpath>
+        </field>
+    </record> -->
+    <!-- <record id="inherited_module_form_viewv3" model="ir.ui.view">
+        <field name="name">inherited.module.form.viewv3</field>
+        <field name="model">zalo.post</field>
+        <field name="inherit_id" ref="zalo_post_module.view_zalo_post_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//sheet//div[1]" position="inside">
+                <notebook>
+                    
+                </notebook>
+            </xpath>
+        </field>
+    </record> -->
+
+</odoo>

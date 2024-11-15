@@ -1,0 +1,55 @@
+<odoo>
+    <data>
+        <record id="action_zalo_post" model="ir.actions.act_window">
+            <field name="name">Zalo Posts</field>
+            <field name="res_model">zalo.post</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem 
+        id="menu_zalo_marketing_root" 
+        name="Zalo Marketing" 
+        sequence="0"/>
+
+         <menuitem 
+        id="zalo_group" 
+        parent="MarketingContent.menu_config"
+        name="Zalo Manager" 
+        />
+
+        <menuitem
+        id="menu_zalo_post"
+        parent="menu_zalo_marketing_root" 
+        name="Posts" 
+        sequence="20" 
+        action="action_zalo_post"/>
+        
+
+        <menuitem
+        id="menu_zalo_config"
+        parent="menu_zalo_marketing_root" 
+        name="Config" 
+        sequence="30" 
+        />
+        <menuitem 
+        id="menu_zalo_video" 
+        name="Prepare Video Zalo" 
+        parent="zalo_group" 
+        action="action_zalo_video"
+        sequence="41"/>
+
+        <menuitem 
+        id="menu_zalo_account" 
+        name="Manager Zalo Accounts" 
+        parent="zalo_group" 
+        action="action_zalo_account"
+        sequence="40"/>
+
+        <menuitem
+        id="menu_zalo_postv2"
+        parent="zalo_group" 
+        name="Manager Zalo Post" 
+        sequence="43" 
+        action="action_zalo_post"/>
+    </data>
+</odoo>

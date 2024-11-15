@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <!-- Tree View cho Marketing Content -->
+        <record id="view_marketing_content_tree" model="ir.ui.view">
+            <field name="name">marketing.content.tree</field>
+            <field name="model">marketing.content</field>
+            <field name="arch" type="xml">
+                <tree string="Marketing Content">
+                    <field name="title"/>
+                    <field name="content" widget="html"/>
+                    <field name="url"/>
+                    <field name="include_link"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Form View cho Marketing Content -->
+        <record id="view_marketing_content_form" model="ir.ui.view">
+            <field name="name">marketing.content.form</field>
+            <field name="model">marketing.content</field>
+            <field name="arch" type="xml">
+                <form string="Marketing Content">
+                    <sheet>
+                        <group string="Content Details">
+                            <field name="title" placeholder="Enter Title"/>
+                            <field name="content" placeholder="Enter Content" widget="html"/>
+                            <field name="url" string="Content URL"/>
+                            <field name="include_link" string="Include Link"/>
+                        </group>
+                        <group string="Media">
+                            <field name="image_ids" widget="one2many_list" options="{'no_create': True}" string="Images"/>
+                            <!-- Remove the following line if video_ids is not needed -->
+                            <!-- <field name="video_ids" string="Videos"/> -->
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Action for Marketing Content -->
+        <record id="action_marketing_content" model="ir.actions.act_window">
+            <field name="name">Marketing Content</field>
+            <field name="res_model">marketing.content</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_marketing_content_tree"/>
+            <field name="domain">[('active', '=', True)]</field>
+        </record>
+    </data>
+</odoo>

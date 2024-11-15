@@ -1,0 +1,43 @@
+<odoo>
+
+  <record id="view_auto_comment_schedule_form" model="ir.ui.view">
+    <field name="name">auto.comment.schedule.form</field>
+    <field name="model">auto.comment.schedule</field>
+    <field name="arch" type="xml">
+      <form js_class="autocomment" string="Auto Comment Schedule">
+       <header>
+         <button name="action_stop_auto_comment" string="Stop" type="object" class="oe_highlight" confirm="Are you sure you want to stop auto-commenting?" />
+       </header>
+        <sheet>
+          <group>
+            <field name="post_id" readonly="1" />
+            <field name="reminder_next_time" readonly="1" />
+            <field name="end_time" readonly="1" />
+            <!-- <field name="remind_time" /> -->
+            <field name="remind_time_id" string="Remind Time"  />
+          </group>
+        </sheet>
+      </form>
+    </field>
+  </record>
+
+  <record id="view_auto_comment_schedule_tree" model="ir.ui.view">
+    <field name="name">auto.comment.schedule.tree</field>
+    <field name="model">auto.comment.schedule</field>
+    <field name="arch" type="xml">
+      <tree>
+        <field name="post_id" />
+        <field name="reminder_next_time"  />
+        <field name="end_time" />
+        <field name="remind_time_id" string="Remind Time" />
+        <button name="action_stop_auto_comment" string="Stop" type="object" class="oe_highlight" confirm="Are you sure you want to stop auto-commenting?" />
+      </tree>
+    </field>
+  </record>
+
+  <record id="action_auto_comment_schedule" model="ir.actions.act_window">
+    <field name="name">Auto Comment Schedule</field>
+    <field name="res_model">auto.comment.schedule</field>
+    <field name="view_mode">tree,form</field>
+  </record>
+</odoo>

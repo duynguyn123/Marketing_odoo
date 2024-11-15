@@ -1,0 +1,52 @@
+<odoo>
+    <record id="view_zalo_video_form" model="ir.ui.view">
+        <field name="name">zalo.video.form</field>
+        <field name="model">zalo.video</field>
+        <field name="arch" type="xml">
+            <form string="Zalo video">
+                <sheet>
+                    <group>
+                        <field name="zalo_post"/>
+                    </group>
+                    <group>
+                    </group>
+                    <!-- <button string="Upload Video" type="object" name="action_upload_video" class="btn-primary "/> -->
+                    <!-- <button string="Verify Video" type="object" name="action_verify_video" class="btn-warning"/> -->
+
+
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Define the Zalo Post tree view -->
+    <record id="view_zalo_video_tree" model="ir.ui.view">
+        <field name="name">zalo.video.tree</field>
+        <field name="model">zalo.video</field>
+        <field name="arch" type="xml">
+            <tree string="Zalo Video">
+                <field name="zalo_post" />
+                <field name="video_name" />
+                <field name="videoToken" />
+                <field name="video_id" />
+                <field name="status" />
+                
+            </tree>
+        </field>
+    </record>
+
+    <!-- Define the action for Zalo Posts -->
+    <record id="action_zalo_video" model="ir.actions.act_window">
+        <field name="name">Zalo Video</field>
+        <field name="res_model">zalo.video</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Hãy thêm một videooo
+            </p>
+        </field>
+        <!-- <field name="view_ids" eval="[(5, 0, 0), (0, 0, {'view_mode': 'tree', 'view_id': ref('view_zalo_video_tree')}), (0, 0, {'view_mode': 'form', 'view_id': ref('view_zalo_video_form')})]"/> -->
+    </record>
+
+    <!-- Define the menu item for Zalo Posts -->
+</odoo>

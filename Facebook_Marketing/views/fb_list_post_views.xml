@@ -1,0 +1,31 @@
+<odoo>
+  <data>
+    <record id="view_marketing_post_tree" model="ir.ui.view">
+      <field name="name">marketing.post.tree</field>
+      <field name="model">marketing.post</field>
+      <field name="arch" type="xml">
+        <tree string="Facebook Posts" create="false" edit="false" delete="false">
+          <field name="content_id" />
+          <field name="account_id" />
+          <field name="page_id" />
+          <field name="schedule_post" />
+           <field name="start_auto_comment" />
+           <field name="end_auto_comment" />
+           <!-- <field name="comment_suggestion_id"/> -->
+           <field name="comment_suggestions_text" />
+           <field name="remind_time_id" />
+          <field name="state" />
+          <field name="post_url" /> 
+          <field name="post_id" optional="hide" />
+        </tree>
+      </field>
+    </record>
+
+    <record id="action_marketing_post" model="ir.actions.act_window">
+      <field name="name">Marketing Posts</field>
+      <field name="res_model">marketing.post</field>
+      <field name="view_mode">tree,form</field>
+      <field name="view_id" ref="view_marketing_post_tree" />
+    </record>
+  </data>
+</odoo>
